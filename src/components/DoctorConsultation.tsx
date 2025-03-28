@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, Phone, Mail, Video, User, Heart, Shield, Award, Clock } from 'lucide-react';
+import { Calendar, Phone, Video, User, Heart, Shield, Award, Clock } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 

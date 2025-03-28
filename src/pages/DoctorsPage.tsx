@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -6,13 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Calendar, Phone, Mail, Video, Search, Filter, Star, MapPin } from 'lucide-react';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const doctors = [
   {
     id: 1,
     name: "Dr. Priya Sharma",
     specialty: "Transplant Surgeon",
-    image: "/lovable-uploads/49c70d07-f111-42e8-974d-31460a5b20d2.png",
+    initials: "PS",
     experience: "15+ years",
     bio: "Specialized in liver and kidney transplants with extensive experience in complex organ transplantation procedures.",
     availability: "Mon, Wed, Fri",
@@ -26,7 +28,7 @@ const doctors = [
     id: 2,
     name: "Dr. Arun Patel",
     specialty: "Nephrologist",
-    image: "/lovable-uploads/1334449b-5781-4f29-86d5-091f9dd38d73.png",
+    initials: "AP",
     experience: "12+ years",
     bio: "Expert in kidney care and transplantation procedures with a focus on post-transplant recovery and care.",
     availability: "Tue, Thu, Sat",
@@ -40,7 +42,7 @@ const doctors = [
     id: 3,
     name: "Dr. Sarah Johnson",
     specialty: "Cardiologist",
-    image: "/lovable-uploads/75552868-81fd-4bd5-a3cc-b5a1b6a1d647.png",
+    initials: "SJ",
     experience: "10+ years",
     bio: "Specializes in heart transplantation and cardiac care with expertise in advanced heart failure management.",
     availability: "Mon, Tue, Thu",
@@ -54,7 +56,7 @@ const doctors = [
     id: 4,
     name: "Dr. Michael Chen",
     specialty: "Hepatologist",
-    image: "/lovable-uploads/866d6ce2-50be-44a7-9292-ce8e20997512.png",
+    initials: "MC",
     experience: "14+ years",
     bio: "Expert in liver diseases and transplantation with a specialization in living donor liver transplants.",
     availability: "Wed, Fri, Sat",
@@ -68,7 +70,7 @@ const doctors = [
     id: 5,
     name: "Dr. Anjali Mehta",
     specialty: "Pulmonologist",
-    image: "/lovable-uploads/24e73129-e227-4d94-a171-f499c01faba4.png",
+    initials: "AM",
     experience: "11+ years",
     bio: "Specialized in lung transplantation and respiratory care with expertise in treating complex pulmonary conditions.",
     availability: "Mon, Wed, Fri",
@@ -130,19 +132,22 @@ const DoctorsPage = () => {
                 {doctors.map((doctor) => (
                   <Card key={doctor.id} className="overflow-hidden">
                     <div className="flex flex-col md:flex-row">
-                      <div className="md:w-1/4 min-h-[200px] bg-gray-100">
-                        <img 
-                          src={doctor.image} 
-                          alt={doctor.name} 
-                          className="w-full h-full object-cover object-center"
-                        />
+                      <div className="md:w-1/4 flex items-center justify-center bg-gradient-to-br from-teal-500 to-teal-600 p-6">
+                        <div className="flex flex-col items-center justify-center">
+                          <Avatar className="h-32 w-32 bg-teal-200 text-teal-800">
+                            <AvatarFallback className="text-4xl font-semibold">{doctor.initials}</AvatarFallback>
+                          </Avatar>
+                          <div className="mt-4 text-center">
+                            <p className="text-white font-medium text-lg">{doctor.specialty}</p>
+                          </div>
+                        </div>
                       </div>
                       <div className="md:w-3/4">
                         <CardHeader className="pb-2">
                           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                             <div>
                               <CardTitle className="text-xl text-teal-800">{doctor.name}</CardTitle>
-                              <p className="text-teal-600 font-medium">{doctor.specialty}</p>
+                              <p className="text-teal-600 font-medium">Medical ID: {doctor.id}00{Math.floor(Math.random() * 100) + 1}</p>
                             </div>
                             <div className="flex items-center text-sm bg-teal-50 px-3 py-1 rounded-full">
                               <Star className="h-4 w-4 text-yellow-500 mr-1 fill-yellow-500" />
