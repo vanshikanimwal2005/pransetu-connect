@@ -11,11 +11,9 @@ const Footer = () => {
           {/* About */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img 
-                src="/lovable-uploads/dd89ed71-6624-4276-875a-5f71677b63ff.png" 
-                alt="Pransetu Logo" 
-                className="h-10 w-auto" 
-              />
+              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-teal-400 to-teal-300 flex items-center justify-center text-teal-900">
+                <Heart className="h-6 w-6" />
+              </div>
               <span className="text-2xl font-bold">Pransetu</span>
             </div>
             <p className="text-teal-200 mb-4">

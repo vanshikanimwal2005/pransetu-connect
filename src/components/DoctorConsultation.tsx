@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, Phone, Mail, Video, User } from 'lucide-react';
+import { Calendar, Phone, Mail, Video, User, Heart, Shield, Award, Clock } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
@@ -59,14 +59,24 @@ const DoctorConsultation = () => {
           {doctors.map((doctor) => (
             <Card key={doctor.id} className="bg-white hover:shadow-lg transition-all duration-300 overflow-hidden">
               <div className="aspect-square overflow-hidden bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
-                <Avatar className="h-32 w-32 bg-teal-200 text-teal-800">
-                  <AvatarFallback className="text-4xl font-semibold">{doctor.initials}</AvatarFallback>
-                </Avatar>
+                <div className="flex flex-col items-center justify-center">
+                  <Avatar className="h-32 w-32 bg-teal-200 text-teal-800">
+                    <AvatarFallback className="text-4xl font-semibold">{doctor.initials}</AvatarFallback>
+                  </Avatar>
+                  <div className="mt-4 flex items-center justify-center gap-2">
+                    {doctor.specialty === "Transplant Surgeon" && <Award className="h-5 w-5 text-teal-100" />}
+                    {doctor.specialty === "Nephrologist" && <Shield className="h-5 w-5 text-teal-100" />}
+                    {doctor.specialty === "Cardiologist" && <Heart className="h-5 w-5 text-teal-100" />}
+                    {doctor.specialty === "Hepatologist" && <Clock className="h-5 w-5 text-teal-100" />}
+                    <span className="text-white font-medium text-sm">{doctor.specialty}</span>
+                  </div>
+                </div>
               </div>
               <CardHeader className="pt-6 pb-2">
                 <CardTitle className="text-xl text-teal-800">{doctor.name}</CardTitle>
-                <CardDescription className="text-teal-600 font-medium">
-                  {doctor.specialty}
+                <CardDescription className="text-teal-600 font-medium flex items-center">
+                  <User className="h-3 w-3 mr-1" /> 
+                  <span>Medical ID: {doctor.id}00{Math.floor(Math.random() * 100) + 1}</span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="pb-4">

@@ -16,11 +16,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img 
-              src="/lovable-uploads/dd89ed71-6624-4276-875a-5f71677b63ff.png" 
-              alt="Pransetu Logo" 
-              className="h-10 w-auto" 
-            />
+            <div className="h-10 w-10 rounded-full bg-gradient-to-r from-teal-600 to-teal-500 flex items-center justify-center text-white">
+              <Heart className="h-6 w-6" />
+            </div>
             <span className="text-2xl font-bold metallic-text hidden sm:inline-block">Pransetu</span>
           </Link>
 
