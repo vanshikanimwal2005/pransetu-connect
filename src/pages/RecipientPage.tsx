@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -11,10 +10,12 @@ import { Slider } from '@/components/ui/slider';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
 import { User, FileText, AlertCircle, Clock } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const RecipientPage = () => {
   const { toast } = useToast();
   const [urgency, setUrgency] = React.useState([5]);
+  const [hasMedicalHistory, setHasMedicalHistory] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -190,11 +191,36 @@ const RecipientPage = () => {
                         </div>
                       </div>
 
+                      <div className="space-y-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <div className="flex items-start space-x-3">
+                          <Checkbox 
+                            id="hasMedicalHistory" 
+                            checked={hasMedicalHistory}
+                            onCheckedChange={(checked) => setHasMedicalHistory(checked as boolean)}
+                            className="mt-1"
+                          />
+                          <div>
+                            <Label htmlFor="hasMedicalHistory" className="font-medium text-blue-800">I have a documented medical history</Label>
+                            <p className="text-sm text-gray-600">Check this if you have a documented medical history in the ABHA system</p>
+                          </div>
+                        </div>
+                        
+                        {hasMedicalHistory && (
+                          <div className="pt-4 pl-7">
+                            <div className="space-y-2">
+                              <Label htmlFor="abhaId">ABHA ID (Ayushman Bharat Health Account)</Label>
+                              <Input id="abhaId" placeholder="14-digit ABHA ID" className="border-blue-200" />
+                              <p className="text-xs text-gray-500">Your ABHA ID will help us access your medical records securely for better matching</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
                       <div className="space-y-2">
-                        <Label htmlFor="medicalCondition">Medical Condition</Label>
+                        <Label htmlFor="medicalCondition">Additional Medical Information</Label>
                         <Textarea 
                           id="medicalCondition" 
-                          placeholder="Please describe your medical condition and history..." 
+                          placeholder="Please provide any additional details about your medical condition..." 
                           className="h-24"
                         />
                       </div>
