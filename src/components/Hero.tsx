@@ -52,12 +52,10 @@ const Hero = () => {
           </div>
           
           <div className="flex-1 relative">
-            <div className="relative w-full h-full animate-float">
-              <img 
-                src="/lovable-uploads/8483488c-a04f-4b81-b3ab-aec2c924d95b.png" 
-                alt="Medical illustration" 
-                className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-              />
+            <div className="relative w-full h-full">
+              <div className="w-full max-w-md h-64 mx-auto rounded-2xl shadow-2xl bg-gradient-to-r from-teal-500 to-teal-400 flex items-center justify-center">
+                <Heart className="h-20 w-20 text-white" />
+              </div>
               <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-teal-100">
                 <div className="flex items-center gap-3">
                   <div className="bg-teal-500 h-10 w-10 rounded-full flex items-center justify-center text-white font-bold">

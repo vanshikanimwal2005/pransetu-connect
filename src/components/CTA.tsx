@@ -25,11 +25,9 @@ const CTA = () => {
               </div>
             </div>
             <div className="lg:w-1/3 p-10 flex justify-center">
-              <img 
-                src="/lovable-uploads/24e73129-e227-4d94-a171-f499c01faba4.png" 
-                alt="CTA illustration" 
-                className="w-72 h-auto object-contain animate-float" 
-              />
+              <div className="w-72 h-72 rounded-full bg-white/20 flex items-center justify-center animate-float">
+                <Heart className="h-24 w-24 text-white" />
+              </div>
             </div>
           </div>
         </div>
